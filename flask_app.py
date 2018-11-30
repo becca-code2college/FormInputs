@@ -12,5 +12,9 @@ def process_inputs():
     dropdown = request.form.get('input_dropdown', '')
     select = request.form.get('input_select', '')
     freeform = request.form.get('input_freeform', '')
+    if len(name) == 0:
+        output_string = "Please enter your name."
+    else:
+        output_string = "You're a wizard %s." % name
     return render_template("main_page.html", input_data=dropdown,
-                           output="You're a wizard %s." % name)
+                           output=output_string)
